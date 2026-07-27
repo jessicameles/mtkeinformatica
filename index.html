@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jéssica Meles | Tecnologia & Marketing Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --surface:rgba(255,255,255,0.05);
+    --surface-2:rgba(255,255,255,0.08);
+    --gold:#eccd73;
+    --purple:#592d8c;
+    --purple-deep:#26123f;
+    --white:#ffffff;
+    --line:rgba(255,255,255,0.14);
+    --muted:rgba(255,255,255,0.68);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;color:var(--white);
+    background:
+      radial-gradient(circle at 15% 0%, rgba(89,45,140,0.55), transparent 55%),
+      linear-gradient(180deg, #000000 0%, #150a24 35%, #2c1547 70%, #592d8c 130%);
+    background-attachment:fixed;
+    font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;margin:0;letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  ::selection{background:var(--gold);color:var(--black);}
+
+  header.site{position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .brand{font-family:'Fraunces',serif;font-size:19px;font-weight:600;}
+  .brand em{font-style:normal;color:var(--gold);}
+  nav .links{display:flex;gap:30px;align-items:center;font-size:14px;color:var(--muted);}
+  nav .links a{text-decoration:none;transition:color .2s;}
+  nav .links a:hover{color:var(--gold);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14.5px;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;border:1px solid transparent;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--gold);color:var(--black);box-shadow:0 10px 26px -8px rgba(236,205,115,0.5);}
+  .btn-primary:hover{box-shadow:0 12px 30px -6px rgba(236,205,115,0.65);}
+  .btn-ghost{border-color:var(--line);color:var(--white);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .btn-nav{padding:11px 20px;font-size:13.5px;}
+
+  .hero{padding:80px 0 64px;position:relative;overflow:hidden;}
+  .hero::before{
+    content:"";position:absolute;top:-160px;right:-140px;width:480px;height:480px;border-radius:50%;
+    background:radial-gradient(circle, rgba(89,45,140,0.55), transparent 70%);pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.85fr;gap:56px;align-items:center;position:relative;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.06em;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;text-transform:uppercase;}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .hero h1{font-size:46px;line-height:1.14;font-weight:600;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p.lead{color:var(--muted);font-size:17.5px;max-width:480px;margin:22px 0 32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+  .stat-row{display:flex;gap:30px;flex-wrap:wrap;}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+  .stat span{font-size:12.5px;color:var(--muted);}
+
+  .seal-wrap{display:flex;align-items:center;justify-content:center;position:relative;}
+  .seal{width:100%;max-width:360px;}
+  .seal .ring-text{fill:rgba(255,255,255,0.55);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:3px;}
+  @media(prefers-reduced-motion:no-preference){
+    .seal .rotating{animation:spin 26s linear infinite;transform-origin:200px 200px;}
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .quotes{padding:16px 0 88px;}
+  .quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .qcard{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;}
+  .qcard p{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin:0 0 10px;}
+  .qcard span{font-size:12px;color:rgba(255,255,255,0.55);font-family:'JetBrains Mono',monospace;}
+
+  section{padding:92px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:580px;margin-bottom:52px;}
+  .section-head h2{font-size:33px;font-weight:600;}
+  .section-head p{color:var(--muted);margin-top:14px;font-size:16px;}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .pillar{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;}
+  .pillar .tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:999px;display:inline-block;}
+  .pillar.tech .tag{background:rgba(236,205,115,0.15);color:var(--gold);}
+  .pillar.mkt .tag{background:rgba(89,45,140,0.35);color:#d8bdf7;}
+  .pillar h3{font-size:25px;margin:16px 0 12px;font-weight:600;}
+  .pillar p.desc{color:var(--muted);font-size:15px;margin-bottom:22px;}
+  .pillar ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .pillar li{display:flex;gap:10px;font-size:14.5px;}
+  .pillar.tech li::before{content:"→";color:var(--gold);flex-shrink:0;}
+  .pillar.mkt li::before{content:"→";color:#c9a3f0;flex-shrink:0;}
+
+  .process{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .step{position:relative;padding-top:6px;}
+  .step .num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--black);background:var(--gold);border-radius:999px;padding:4px 13px;display:inline-block;margin-bottom:18px;font-weight:600;}
+  .step h3{font-size:19px;font-weight:600;margin-bottom:10px;}
+  .step p{color:var(--muted);font-size:14.5px;margin:0;}
+
+  .audience{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .aud-card{border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;font-size:14.5px;background:var(--surface-2);color:var(--muted);}
+  .aud-card b{display:block;font-family:'Fraunces',serif;font-size:16px;margin-bottom:8px;color:var(--white);font-weight:600;}
+
+  .final-cta{background:linear-gradient(135deg, var(--purple), var(--black));border:1px solid var(--line);border-radius:22px;padding:66px 50px;text-align:center;position:relative;overflow:hidden;}
+  .final-cta h2{font-size:35px;font-weight:600;max-width:660px;margin:0 auto 16px;}
+  .final-cta p{color:var(--muted);max-width:480px;margin:0 auto 32px;font-size:16px;}
+  .final-note{margin-top:18px;font-size:12.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
+  footer{border-top:1px solid var(--line);padding:38px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  footer p{font-size:13px;color:var(--muted);margin:0;}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+  footer a.ig{color:var(--gold);text-decoration:none;font-weight:600;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Jéssica <em>Meles</em></div>
+    <div class="links">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a class="btn btn-primary btn-nav" href="#contato">Agendar conversa</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Engenharia da Computação · Tecnologia · Marketing Digital</div>
+        <h1>Tecnologia e presença <em>online</em>, no mesmo lugar.</h1>
+        <p class="lead">Sou Jéssica Meles, formada em engenheira da computação. Crio sites, sistemas e treinamentos para o seu negócio funcionar melhor — e cuido do Instagram, Google, WhatsApp Business e Facebook para o seu negócio ser encontrado.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contato">Agendar no WhatsApp</a>
+          <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>2+</b><span>áreas de atuação, um só ponto de contato</span></div>
+          <div class="stat"><b>4</b><span>canais de marketing digital cobertos</span></div>
+          <div class="stat"><b>100%</b><span>engenharia da computação</span></div>
+        </div>
+      </div>
+      <div class="seal-wrap">
+        <svg class="seal" viewBox="0 0 400 400" role="img" aria-label="Selo com as iniciais JM, representando engenharia, tecnologia e marketing digital">
+          <circle cx="200" cy="200" r="188" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="200" cy="200" r="150" fill="var(--purple)" opacity="0.18"/>
+          <circle cx="200" cy="200" r="118" fill="var(--purple-deep)" stroke="var(--gold)" stroke-width="2"/>
+          <g class="rotating">
+            <path id="ringpath" fill="none" d="M 200,200 m -166,0 a 166,166 0 1,1 332,0 a 166,166 0 1,1 -332,0"/>
+            <text class="ring-text">
+              <textPath href="#ringpath" startOffset="0%">TECNOLOGIA · MARKETING DIGITAL · ENGENHARIA · TECNOLOGIA · MARKETING DIGITAL · ENGENHARIA ·</textPath>
+            </text>
+          </g>
+          <text x="200" y="222" text-anchor="middle" font-family="Fraunces, serif" font-size="86" font-weight="600" fill="var(--gold)">JM</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="quotes wrap">
+    <div class="quotes-grid">
+      <div class="qcard"><p>"Informática não é decorar. É resolver problemas"</p><span>@jessicamelesmtk</span></div>
+      <div class="qcard"><p>"Não é só um perfil. É a sua marca."</p><span>@jessicamelesmtk</span></div>
+      <div class="qcard"><p>"Não é só postar. É saber o que comunicar."</p><span>@jessicamelesmtk</span></div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">O QUE EU FAÇO</div>
+        <h2>Duas frentes que trabalham juntas: a estrutura por trás e a presença por fora.</h2>
+        <p>Você não precisa contratar um profissional para cada canal. Cuido da base técnica e da presença online do seu negócio.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar tech">
+          <span class="tag">Tecnologia</span>
+          <h3>Sites, sistemas e suporte</h3>
+          <p class="desc">A estrutura que sustenta o seu negócio funcionando de verdade.</p>
+          <ul>
+            <li>Criação de sites</li>
+            <li>Sistemas sob medida para empresas</li>
+            <li>Suporte contínuo em sistemas</li>
+            <li>Aulas e treinamentos de informática</li>
+          </ul>
+        </div>
+        <div class="pillar mkt">
+          <span class="tag">Marketing Digital</span>
+          <h3>Presença online que gera resultado</h3>
+          <p class="desc">Criação, configuração e otimização dos canais onde seu cliente já está.</p>
+          <ul>
+            <li>Instagram</li>
+            <li>Google (perfil e presença de busca)</li>
+            <li>WhatsApp Business</li>
+            <li>Facebook</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">COMO FUNCIONA</div>
+        <h2>3 passoa sem mistério.</h2>
+      </div>
+      <div class="process">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Conversa de diagnóstico</h3>
+          <p>Você me conta o que precisa — seja um sistema, um site ou presença online — e eu escuto antes de sugerir qualquer coisa.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Plano sob medida</h3>
+          <p>Defino junto com você o que faz sentido: tecnologia, marketing digital, ou os dois.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Execução e suporte</h3>
+          <p>Coloco em prática com clareza e continuo por perto para ajustes e suporte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">PRA QUEM É</div>
+        <h2>Se você se identifica com algum ponto abaixo, vamos conversar.</h2>
+      </div>
+      <div class="audience">
+        <div class="aud-card"><b>Negócio sem site</b>Precisa de uma presença profissional online.</div>
+        <div class="aud-card"><b>Sistema manual demais</b>Perde tempo com processos que poderiam ser automatizados.</div>
+        <div class="aud-card"><b>Redes sociais confusas</b>Está no Instagram, Google e WhatsApp, mas sem estratégia.</div>
+        <div class="aud-card"><b>Equipe sem autonomia</b>Depende de terceiros pra tarefas simples de informática.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="final-cta">
+        <div class="eyebrow" style="justify-content:center;">VAMOS COMEÇAR</div>
+        <h2>Vamos conversar sobre o seu negócio?</h2>
+        <p>Sem compromisso. Só uma conversa pra entender o que faz sentido pra você: tecnologia, marketing digital, ou os dois.</p>
+        <a class="btn btn-primary" href="https://wa.me/5554981455645?text=Oi%20Jéssica!%20Vim%20pela%20landing%20page%20e%20quero%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agendar no WhatsApp</a>
+        <div class="final-note"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fbrand">Jéssica Meles</span>
+    <p>Engenharia da Computação · Sites & Sistemas · Marketing Digital</p>
+    <a class="ig" href="https://www.instagram.com/jessicamelesmtk" target="_blank" rel="noopener">@jessicamelesmtk →</a>
+  </div>
+</footer>
+
+</body>
+</html>
