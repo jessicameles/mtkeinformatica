@@ -118,6 +118,55 @@
   footer p{font-size:13px;color:var(--muted);margin:0;}
   footer .fbrand{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
   footer a.ig{color:var(--gold);text-decoration:none;font-weight:600;}
+  footer a.ig{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* COLE O CSS RESPONSIVO AQUI */
+
+@media (max-width:768px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quotes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pillars{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .audience{
+        grid-template-columns:1fr;
+    }
+
+    nav.wrap{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+        gap:20px;
+    }
+
+    nav .links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
 </style>
 </head>
 <body>
